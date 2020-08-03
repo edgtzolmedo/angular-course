@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  @Input() character;
+  @Input() character: { name: any; };
   swService: StarWarsService;
 
   constructor(swService: StarWarsService) {

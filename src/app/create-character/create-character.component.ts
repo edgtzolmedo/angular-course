@@ -17,6 +17,10 @@ export class CreateCharacterComponent implements OnInit {
 
   defaultName = 'Obi-Wan';
 
+  constructor(swService: StarWarsService) {
+    this.swService = swService;
+   }
+
   onSubmit(submittedForm){
     if (submittedForm.invalid){
       return;
@@ -25,9 +29,7 @@ export class CreateCharacterComponent implements OnInit {
     this.swService.addCharacter(submittedForm.value.name, submittedForm.value.side);
   }
 
-  constructor(swService: StarWarsService) {
-    this.swService = swService;
-   }
+
 
   ngOnInit(): void {
   }

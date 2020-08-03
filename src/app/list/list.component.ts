@@ -14,7 +14,7 @@ export class ListComponent implements OnInit, OnDestroy {
   activatedRoute: ActivatedRoute;
   swService: StarWarsService;
   loadedSide = 'all';
-  subscription: Subscription;
+  private subscriptions: Subscription[] = [];
 
   constructor(activatedRoute: ActivatedRoute, swService: StarWarsService) {
     this.activatedRoute = activatedRoute;
@@ -36,7 +36,7 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
 }
